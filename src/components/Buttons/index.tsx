@@ -36,13 +36,17 @@ export const ButtonSecondary = (props: ButtonProps) => {
 
 interface IconButtonProps {
   icon: IconType;
+  action?: () => void;
 }
 
 export const IconButton = (props: IconButtonProps) => {
-  const { icon: Icon } = props;
+  const { icon: Icon, action } = props;
 
   return (
-    <button className="text-2xl p-2 bg-surface-background hover:bg-surface-primary rounded-lg transition-colors">
+    <button
+      onClick={action}
+      className="text-2xl p-2 bg-surface-background hover:bg-surface-primary rounded-lg transition-colors"
+    >
       {Icon && <Icon />}
     </button>
   );

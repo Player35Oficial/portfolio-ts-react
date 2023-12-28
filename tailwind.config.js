@@ -2,7 +2,17 @@
 export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        appear: {
+          "0%": { opacity: "0", right: -100 },
+          "100%": { opacity: "1", right: 0 },
+        },
+      },
+      animation: {
+        appear: "appear 0.3s ease-in-out forwards",
+      },
+    },
     colors: {
       // Brand Colors
       "primary-500": "#8A42DB",
