@@ -26,6 +26,8 @@ export default {
       // Text Colors
       "text-primary": "#F5F6F6",
       "text-secondary": "#CDD0D4",
+      // techs
+      "techs-colors": "#9955E8",
     },
     fontFamily: {
       sans: ["Heebo", "sans-serif"],
