@@ -13,8 +13,8 @@ export const Button = (props: ButtonProps) => {
     <button
       className={
         reverse
-          ? "primary flex text-base h-fit flex-row-reverse items-center gap-x-2 bg-primary-500 hover:bg-primary-400 py-4 px-4 rounded-lg transition-colors"
-          : "primary flex text-base h-fit items-center gap-x-2 bg-primary-500 hover:bg-primary-400 py-4 px-4 rounded-lg transition-colors"
+          ? "primary flex text-base h-fit w-fit flex-row-reverse items-center gap-x-2 bg-primary-500 hover:bg-primary-400 py-4 px-4 rounded-lg transition-colors"
+          : "primary flex text-base h-fit w-fit items-center gap-x-2 bg-primary-500 hover:bg-primary-400 py-4 px-4 rounded-lg transition-colors"
       }
     >
       {label}
@@ -30,8 +30,8 @@ export const ButtonSecondary = (props: ButtonProps) => {
     <button
       className={
         reverse
-          ? "primary flex text-base h-fit flex-row-reverse items-center gap-x-2 bg-surface-secondary hover:bg-surface-tertiary py-4 px-4 rounded-lg transition-colors"
-          : "primary flex text-base h-fit items-center gap-x-2 bg-surface-secondary hover:bg-surface-tertiary py-4 px-4 rounded-lg transition-colors"
+          ? "primary flex text-base h-fit w-fit flex-row-reverse items-center gap-x-2 bg-surface-secondary hover:bg-surface-tertiary py-4 px-4 rounded-lg transition-colors"
+          : "primary flex text-base h-fit w-fit items-center gap-x-2 bg-surface-secondary hover:bg-surface-tertiary py-4 px-4 rounded-lg transition-colors"
       }
     >
       <span>{label}</span>

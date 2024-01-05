@@ -2,6 +2,9 @@ import FirstImage from "../../assets/telecommuting-animate.svg";
 import { Button, ButtonSecondary } from "../../components/Buttons";
 import { FaFileLines, FaArrowRightLong } from "react-icons/fa6";
 import Arrow from "../../assets/arrow.svg";
+import DevFigure from "../../assets/operating system-amico.svg";
+import { DiReact, DiAngularSimple, DiNodejsSmall } from "react-icons/di";
+import { IoLogoJavascript } from "react-icons/io5";
 
 export default function Home() {
   return (
@@ -38,8 +41,39 @@ export default function Home() {
         </div>
         <img className="absolute right-16 -bottom-16" src={Arrow} alt="arrow" />
       </div>
-      <div className="pt-20 h-screen bg-surface-primary" id="about">
+      <div className="pt-20 h-auto bg-surface-primary" id="about">
         <h1 className="text-3xl font-bold font-kalam ">About</h1>
+        <div>
+          {/* Image */}
+          <img src={DevFigure} alt="dev figure" />
+          {/* Content */}
+          <div className="flex flex-col px-6 py-12">
+            <div className="techs flex gap-4 text-3xl text-techs-colors mb-8">
+              <IoLogoJavascript />
+              <DiReact />
+              <DiAngularSimple />
+              <DiNodejsSmall />
+            </div>
+            <div>
+              <span className="block font-kalam text-secondary mb-2">
+                About me
+              </span>
+              <h2 className="role text-2xl font-medium mb-4">
+                I'm a passionate software developer looking for my first IT
+                opportunity
+              </h2>
+              <p className="text-text-secondary mb-12">
+                Beyond coding, I'm a coffee enthusiast, a cat lover, and a
+                self-taught artist who enjoys spending my free time doodling. I
+                am currently seeking opportunities to bring my skills and
+                enthusiasm to a tech company in the United States or Europe and
+                am excited about the prospect of relocating to pursue new
+                challenges.
+              </p>
+            </div>
+            <Button label="My resume" icon={FaFileLines} reverse={true} />
+          </div>
+        </div>
       </div>
       <div className="pt-20 h-fit py-12 px-6" id="projects">
         <p className="text-base text-secondary text-center font-kalam ">
