@@ -36,7 +36,7 @@ export default function NavbarMobile(props: NavBarProps) {
           <nav className="flex gap-4 text-text-secondary flex-col text-right pr-6 pt-6">
             <a
               className={local.hash === "#home" ? activeStyle : "p-2"}
-              href="#home"
+              href="/#home"
               onClick={handleMenu}
             >
               Home

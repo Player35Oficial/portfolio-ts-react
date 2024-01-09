@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar/desktop";
 import NavbarMobile from "./components/Navbar/mobile";
 import logo from "./assets/YuriSantana.svg";
+import Project from "./pages/Project";
 
 function App() {
   const windowWidth = window.innerWidth;
@@ -18,6 +19,7 @@ function App() {
 
       <Routes>
         <Route path="/" Component={Home} />
+        <Route path="/project/:id" Component={Project} />
       </Routes>
     </Router>
   );

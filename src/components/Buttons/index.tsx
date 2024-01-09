@@ -1,3 +1,4 @@
+import React from "react";
 import { IconType } from "react-icons";
 
 interface ButtonProps {
@@ -63,6 +64,44 @@ export const IconButtonSecondary = (props: IconButtonProps) => {
   return (
     <button className="text-2xl p-2 bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors">
       {Icon && <Icon />}
+    </button>
+  );
+};
+
+interface ButtonThree {
+  label: string;
+  icon: React.ElementType;
+  icon2: React.ElementType;
+}
+
+export const ButtonThree = (props: ButtonThree) => {
+  const { label, icon: Icon, icon2: Icon2 } = props;
+
+  return (
+    <button
+      className={
+        "justify-between w-full primary flex text-base h-fit items-center gap-x-2 bg-primary-500 hover:bg-primary-400 py-4 px-4 rounded-lg transition-colors"
+      }
+    >
+      <div className="text-2xl">{Icon && <Icon />}</div>
+      {label}
+      <div className="text-2xl">{Icon2 && <Icon2 />}</div>
+    </button>
+  );
+};
+
+export const ButtonThreeSecondary = (props: ButtonThree) => {
+  const { label, icon: Icon, icon2: Icon2 } = props;
+
+  return (
+    <button
+      className={
+        "justify-between w-full primary flex text-base h-fit items-center gap-x-2 bg-surface-secondary hover:bg-surface-tertiary py-4 px-4 rounded-lg transition-colors"
+      }
+    >
+      <div className="text-2xl">{Icon && <Icon />}</div>
+      {label}
+      <div className="text-2xl">{Icon2 && <Icon2 />}</div>
     </button>
   );
 };

@@ -26,7 +26,7 @@ export default function Navbar(props: NavBarProps) {
         <nav className="flex gap-4 text-text-secondary">
           <a
             href="#home"
-            className={local.hash === "#home" ? activeStyle : "p-2"}
+            className={local.hash === "/#home" ? activeStyle : "p-2"}
           >
             Home
           </a>

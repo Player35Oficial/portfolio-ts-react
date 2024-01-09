@@ -10,7 +10,7 @@ interface ProjectCardProps {
   short_project_description: string;
 }
 
-export default function ProjectCard(props: ProjectCardProps) {
+export function ProjectCard(props: ProjectCardProps) {
   const {
     image,
     created_at,
@@ -46,5 +46,53 @@ export default function ProjectCard(props: ProjectCardProps) {
         </p>
       </div>
     </div>
+  );
+}
+
+export function ProjectCardFull() {
+  return (
+    <main>
+      <div className="bg-primary-400 h-40">
+        <img className="h-40 w-full" src={"" || Default} alt="alt text" />
+      </div>
+      <div className="flex px-4 pb-12 flex-col bg-surface-primary min-[320px]:w-full h-fit w-[24rem] gap-6">
+        <div className="my-4 flex justify-between">
+          <p className="text-text-secondary">Jul - Dec 2022</p>
+          <div className="stacks text-techs-colors">resolver</div>
+        </div>
+        <h2 className="text-4xl font-medium text-text-primary">
+          Feedback Widget
+        </h2>
+        <div className="text-text-secondary text-lg ">
+          <p>
+            <span className="font-bold leading-8">My role:</span> Full-stack
+            developer
+          </p>
+          <p>
+            <span className="font-bold leading-8">Team:</span> Marcus Souza(PM),
+            Ilana Mallak (UX/UI Designer)
+          </p>
+        </div>
+        <div className=" w-[100%] gap-2 flex flex-col text-lg text-text-secondary">
+          <div className="flex flex-col gap-6 leading-8">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda at dolorum, illo qui porro. Illo qui porro.
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda at dolorum, illo qui porro necessitatibus quibusdam
+              illum maxime expedita ipsa eaque.
+            </p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Assumenda at dolorum, illo qui porro necessitatibus quibusdam
+              illum maxime expedita ipsa eaque totam quisquam ad perspiciatis
+              reiciendis veniam culpa ut nesciunt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
