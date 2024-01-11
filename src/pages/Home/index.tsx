@@ -2,10 +2,9 @@ import FirstImage from "../../assets/telecommuting-animate.svg";
 import {
   Button,
   ButtonSecondary,
-  IconButton,
   IconButtonSecondary,
 } from "../../components/Buttons";
-import { FaFileLines, FaArrowRightLong, FaArrowUp } from "react-icons/fa6";
+import { FaFileLines, FaArrowRightLong } from "react-icons/fa6";
 import Arrow from "../../assets/arrow.svg";
 import DevFigure from "../../assets/operating system-amico.svg";
 import {
@@ -24,13 +23,13 @@ import ContactFigure from "../../assets/good-team-pana.svg";
 export default function Home() {
   return (
     <>
-      <main className="text-text-primary text-pink pt-20">
-        <div className="pt-20 h-auto" id="home">
-          <div className="flex px-6 py-12 flex-col gap-6">
-            <div className="img-container">
+      <main className="text-text-primary text-pink xl:w-max-[1280px] xl:flex xl:flex-col lg:flex lg:flex-col">
+        <div className="h-auto lg:mt-20 lg:m-4" id="home">
+          <div className="flex px-6 py-12 flex-col lg:flex-row-reverse xl:flex-row-reverse items-center gap-6">
+            <div className="img-container lg:w-2/4 xl:w-2/4">
               <img src={FirstImage} alt="presentation image" />
             </div>
-            <div className="info flex flex-col gap-6">
+            <div className="info flex flex-col gap-6 xl:w-[600px] lg:w-[600px]">
               <span className="text-[#00000000] bg-clip-text bg-gradient-to-r from-[#9955E8] to-[#7BFFAF] text-4xl font-kalam">
                 Hi, I'm Yuri
               </span>
@@ -44,28 +43,31 @@ export default function Home() {
                   such as Javascript, Angular , and Node.js.
                 </p>
               </div>
-            </div>
-            <div className="actions flex gap-4 max-[440px]:justify-center">
-              <ButtonSecondary
-                label="My resume"
-                icon={FaFileLines}
-                reverse={true}
-              />
-              <Button label="Get in touch" icon={FaArrowRightLong} />
+              <div className="actions flex gap-4 max-[440px]:justify-center">
+                <ButtonSecondary
+                  label="My resume"
+                  icon={FaFileLines}
+                  reverse={true}
+                />
+                <Button label="Get in touch" icon={FaArrowRightLong} />
+              </div>
             </div>
           </div>
           <img
-            className="absolute right-[16vw] -bottom-[16vw]"
+            className="absolute right-[16vw] -bottom-[16vw] lg:bottom-[44vw] xl:bottom-[21vw]"
             src={Arrow}
             alt="arrow"
           />
         </div>
-        <div className="pt-20 h-auto bg-surface-primary" id="about">
-          <div>
+        <div
+          className="py-8 mt-20 xl:px-16 xl:m-10 xl:rounded-2xl lg:px-16 lg:m-10 lg:rounded-2xl h-auto bg-surface-primary scroll-m-20"
+          id="about"
+        >
+          <div className="xl:flex xl:justify-evenly xl:items-center lg:flex lg:justify-evenly lg:items-center">
             {/* Image */}
-            <img src={DevFigure} alt="dev figure" />
+            <img className="lg:h-80 xl:h-96" src={DevFigure} alt="dev figure" />
             {/* Content */}
-            <div className="flex flex-col px-6 py-12">
+            <div className="flex flex-col px-6 py-12 lg:xl:max-w-xl xl:max-w-xl">
               <div className="techs flex gap-4 text-3xl text-techs-colors mb-8">
                 <IoLogoJavascript />
                 <DiReact />
@@ -93,7 +95,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="pt-20 h-fit py-12 px-6" id="projects">
+        <div className="pt-20 h-fit py-12 px-6 scroll-m-20" id="projects">
           <p className="text-base text-secondary text-center font-kalam ">
             Projects
           </p>
@@ -105,11 +107,20 @@ export default function Home() {
           </div>
           <div className="projects-container flex gap-6 flex-col"></div>
         </div>
-        <div className="py-12 h-auto bg-surface-primary px-6" id="contact">
-          <div>
-            <img src={ContactFigure} alt="contact figure" />
-            <p className="text-base font-kalam text-secondary mb-2">Contacts</p>
-            <div className="flex flex-col gap-4">
+        <div
+          className="py-12 h-auto bg-surface-primary px-6 scroll-m-20 lg:flex lg:items-center lg:px-16 lg:m-10 lg:rounded-2xl xl:justify-between gap-32"
+          id="contact"
+        >
+          <div className="">
+            <img
+              src={ContactFigure}
+              className="lg:h-40 xl:h-40"
+              alt="contact figure"
+            />
+            <div className="flex flex-col gap-4 lg:max-w-xl xl:max-w-xl">
+              <p className="text-base font-kalam text-secondary mb-2 xl:-mb-2 xl:mt-8">
+                Contacts
+              </p>
               <h2 className="text-2xl font-bold">
                 Enjoyed my work? Let's work together
               </h2>
@@ -130,24 +141,24 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="w-full">
             <form className="flex flex-col gap-4 mt-12">
               <input
-                className="bg-surface-background placeholder-text-secondary px-4 py-3 rounded-lg w-full focus-visible:ring focus-visible:ring-secondary"
+                className="bg-surface-background placeholder-text-secondary px-4 py-3 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary"
                 type="text"
                 name="name"
                 id="name"
                 placeholder="Name"
               />
               <input
-                className="bg-surface-background placeholder-text-secondary px-4 py-3 rounded-lg w-full focus-visible:ring focus-visible:ring-secondary"
+                className="bg-surface-background placeholder-text-secondary px-4 py-3 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary"
                 type="email"
                 name="email"
                 id="email"
                 placeholder="E-mail"
               />
               <textarea
-                className="bg-surface-background placeholder-text-secondary px-4 py-3 mb-4 rounded-lg w-full focus-visible:ring focus-visible:ring-secondary resize-none"
+                className="bg-surface-background placeholder-text-secondary px-4 py-3 mb-4 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary resize-none"
                 name="message"
                 id="message"
                 placeholder="Your message"
@@ -159,39 +170,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="text-text-secondary py-6 px-4 flex flex-col gap-4 ">
-        <p className="text-sm">
-          Yuri Santana 2023. Layout based on{" "}
-          <a
-            className="underline hover:text-secondary transition-colors"
-            href="https://www.figma.com/community/file/1303713673750465529"
-          >
-            Rocketseat's
-          </a>{" "}
-          template
-        </p>
-        <div className="flex items-center justify-evenly">
-          <a
-            className="hover:text-secondary transition-colors"
-            href="https://github.com/Player35Oficial"
-          >
-            Github
-          </a>
-          <a
-            className="hover:text-secondary transition-colors"
-            href="https://www.linkedin.com/in/yuri-player35/"
-          >
-            LinkedIn
-          </a>
-          <a
-            className="hover:text-secondary transition-colors"
-            href="https://www.instagram.com/player35_dev/"
-          >
-            Instagram
-          </a>
-          <IconButton icon={FaArrowUp} />
-        </div>
-      </footer>
     </>
   );
 }
