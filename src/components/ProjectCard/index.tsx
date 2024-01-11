@@ -51,19 +51,19 @@ export function ProjectCard(props: ProjectCardProps) {
 
 export function ProjectCardFull() {
   return (
-    <main>
-      <div className="bg-primary-400 h-40">
-        <img className="h-40 w-full" src={"" || Default} alt="alt text" />
-      </div>
-      <div className="flex px-4 pb-12 flex-col bg-surface-primary min-[320px]:w-full h-fit w-[24rem] gap-6">
-        <div className="my-4 flex justify-between">
+    <article className="lg:max-w-[800px] lg:rounded-lg">
+      <div className="flex pb-12 flex-col bg-surface-primary min-[320px]:w-full h-fit w-[24rem] gap-6 lg:rounded-lg">
+        <div className="bg-primary-400 h-40 lg:rounded-t-lg overflow-hidden">
+          <img className="h-40 w-full" src={"" || Default} alt="alt text" />
+        </div>
+        <div className="my-4 flex justify-between  px-4">
           <p className="text-text-secondary">Jul - Dec 2022</p>
           <div className="stacks text-techs-colors">resolver</div>
         </div>
-        <h2 className="text-4xl font-medium text-text-primary">
+        <h2 className="text-4xl px-4 font-medium text-text-primary">
           Feedback Widget
         </h2>
-        <div className="text-text-secondary text-lg ">
+        <div className="text-text-secondary text-lg px-4 ">
           <p>
             <span className="font-bold leading-8">My role:</span> Full-stack
             developer
@@ -73,7 +73,7 @@ export function ProjectCardFull() {
             Ilana Mallak (UX/UI Designer)
           </p>
         </div>
-        <div className=" w-[100%] gap-2 flex flex-col text-lg text-text-secondary">
+        <div className=" w-[100%] gap-2 flex flex-col text-lg text-text-secondary px-4">
           <div className="flex flex-col gap-6 leading-8">
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -93,6 +93,6 @@ export function ProjectCardFull() {
           </div>
         </div>
       </div>
-    </main>
+    </article>
   );
 }
