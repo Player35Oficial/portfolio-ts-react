@@ -27,7 +27,11 @@ export default function Home() {
         <div className="h-auto lg:mt-20 lg:m-4" id="home">
           <div className="flex px-6 py-12 flex-col lg:flex-row-reverse xl:flex-row-reverse items-center gap-6">
             <div className="img-container lg:w-2/4 xl:w-2/4">
-              <img src={FirstImage} alt="presentation image" />
+              <img
+                src={FirstImage}
+                alt="presentation image"
+                className="min-h-64"
+              />
             </div>
             <div className="info flex flex-col gap-6 xl:w-[600px] lg:w-[600px]">
               <span className="text-[#00000000] bg-clip-text bg-gradient-to-r from-[#9955E8] to-[#7BFFAF] text-4xl font-kalam">
@@ -54,18 +58,22 @@ export default function Home() {
             </div>
           </div>
           <img
-            className="absolute right-[16vw] -bottom-[16vw] lg:bottom-[44vw] xl:bottom-[21vw]"
+            className="absolute right-[16vw] -bottom-[16vw] max-[440px]:bottom-56 sm:bottom-72 lg:bottom-[32vw] xl:bottom-[21vw]"
             src={Arrow}
             alt="arrow"
           />
         </div>
         <div
-          className="py-8 mt-20 xl:px-16 xl:m-10 xl:rounded-2xl lg:px-16 lg:m-10 lg:rounded-2xl h-auto bg-surface-primary scroll-m-20"
+          className="py-8 lg:mt-20 sm:mt-8 xl:px-16 xl:m-10 xl:rounded-2xl lg:px-16 lg:m-10 lg:rounded-2xl h-auto bg-surface-primary scroll-m-20"
           id="about"
         >
           <div className="xl:flex xl:justify-evenly xl:items-center lg:flex lg:justify-evenly lg:items-center">
             {/* Image */}
-            <img className="lg:h-80 xl:h-96" src={DevFigure} alt="dev figure" />
+            <img
+              className="sm:h-64 lg:h-80 xl:h-96"
+              src={DevFigure}
+              alt="dev figure"
+            />
             {/* Content */}
             <div className="flex flex-col px-6 py-12 lg:xl:max-w-xl xl:max-w-xl">
               <div className="techs flex gap-4 text-3xl text-techs-colors mb-8">
@@ -114,7 +122,7 @@ export default function Home() {
           <div className="">
             <img
               src={ContactFigure}
-              className="lg:h-40 xl:h-40"
+              className="sm:h-96 lg:h-40 xl:h-40"
               alt="contact figure"
             />
             <div className="flex flex-col gap-4 lg:max-w-xl xl:max-w-xl">
