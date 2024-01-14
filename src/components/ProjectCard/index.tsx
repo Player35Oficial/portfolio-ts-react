@@ -1,14 +1,16 @@
 // import { IconType } from "react-icons";
+import { IconType } from "react-icons";
 import Default from "../../assets/default_project_image.png";
+import { ProjectCardProps } from "../../data/Projects";
 
-interface ProjectCardProps {
-  image: string;
-  created_at: string;
-  finished_at: string;
-  techs: string;
-  project_name: string;
-  short_project_description: string;
-}
+// interface ProjectCardProps {
+//   image: string;
+//   created_at: string;
+//   finished_at: string;
+//   techs: string;
+//   project_name: string;
+//   short_project_description: string;
+// }
 
 export function ProjectCard(props: ProjectCardProps) {
   const {
@@ -20,6 +22,18 @@ export function ProjectCard(props: ProjectCardProps) {
     short_project_description,
   } = props;
 
+  // ignorar o erro de falta de argumentos dentro da condicional de função no retorno da função abaixo
+  function convertToReactNode(
+    icon: IconType | (() => JSX.Element) | JSX.Element
+  ): JSX.Element {
+    if (typeof icon === "function") {
+      return icon();
+    }
+
+    // Se icon não for uma função, assumimos que é um JSX.Element ou um tipo equivalente.
+    return icon as JSX.Element;
+  }
+
   return (
     <div className="flex max-[440px]:p-4 p-6 flex-col bg-surface-primary max-[440px]:w-full h-fit w-[24rem] rounded-2xl hover:shadow-[0_0_45px_0_rgba(125,255,175,0.24)] border-[1px] border-surface-primary hover:border-[1px] hover:border-secondary hover:cursor-pointer transition ">
       <div className="bg-primary-400 rounded-t-lg h-40">
@@ -29,14 +43,16 @@ export function ProjectCard(props: ProjectCardProps) {
           alt="alt text"
         />
       </div>
-      <div className="my-4 flex justify-between">
-        <p>
+      <div className="my-4 flex justify-between items-center">
+        <p className="text-text-secondary">
           {created_at && finished_at
-            ? `${created_at} - ${finished_at} 2023`
+            ? `${created_at} - ${finished_at}`
             : "in development"}
         </p>
-        <div className="stacks text-techs-colors">
-          {techs ? techs : "(resolver)"}
+        <div className="stacks text-techs-colors flex text-3xl gap-4">
+          {techs.map((icon, index) => (
+            <span key={index}>{convertToReactNode(icon)}</span>
+          ))}
         </div>
       </div>
       <div className=" w-[100] gap-2 flex flex-col">

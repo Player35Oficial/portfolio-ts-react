@@ -19,8 +19,22 @@ import {
   IoLogoLinkedin,
 } from "react-icons/io5";
 import ContactFigure from "../../assets/good-team-pana.svg";
+import { useEffect, useState } from "react";
+import {
+  ProjectCardProps,
+  project1,
+  project2,
+  project3,
+} from "../../data/Projects";
+import { ProjectCard } from "../../components/ProjectCard";
 
 export default function Home() {
+  const [projects, setProjects] = useState([project1, project2, project3]);
+
+  useEffect(() => {
+    setProjects(projects);
+    console.log("Load: ", projects);
+  }, [projects]);
   return (
     <>
       <main className="text-text-primary text-pink xl:w-max-[1280px] xl:flex xl:flex-col lg:flex lg:flex-col">
@@ -107,9 +121,27 @@ export default function Home() {
           <p className="text-base text-secondary text-center font-kalam ">
             Projects
           </p>
-          <h2 className="text-2xl text-center font-bold mb-10">
+          <h2 className="text-2xl text-center font-bold">
             Take a look at my highlighted projects
           </h2>
+          <div className="flex gap-8 justify-center my-10">
+            {projects.map((project: ProjectCardProps) => (
+              <ProjectCard
+                created_at={project.created_at.split(",")[0].slice(0, 3)}
+                finished_at={
+                  project.finished_at.split(",")[0].slice(0, 3) +
+                  " " +
+                  project.finished_at.split(",")[1]
+                }
+                image={project.image}
+                project_name={project.project_name}
+                short_project_description={project.short_project_description}
+                techs={project.techs}
+                key={project.id}
+                id={project.id}
+              />
+            ))}
+          </div>
           <div className="flex justify-center">
             <ButtonSecondary label="See all" icon={FaArrowRightLong} />
           </div>
