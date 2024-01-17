@@ -5,13 +5,15 @@ interface ButtonProps {
   label: string;
   icon: IconType;
   reverse?: boolean;
+  action?(): void;
 }
 
 export const Button = (props: ButtonProps) => {
-  const { label, icon: Icon, reverse } = props;
+  const { label, icon: Icon, reverse, action } = props;
 
   return (
     <button
+      onClick={action}
       className={
         reverse
           ? "primary flex text-base h-fit w-fit flex-row-reverse items-center gap-x-2 bg-primary-500 hover:bg-primary-400 py-4 px-4 rounded-lg transition-colors"

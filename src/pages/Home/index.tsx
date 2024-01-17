@@ -35,6 +35,11 @@ export default function Home() {
     setProjects(projects);
     console.log("Load: ", projects);
   }, [projects]);
+
+  function handleScroll() {
+    open("/#contact", "_self");
+  }
+
   return (
     <>
       <main className="text-text-primary text-pink xl:w-max-[1280px] xl:flex xl:flex-col lg:flex lg:flex-col">
@@ -62,12 +67,21 @@ export default function Home() {
                 </p>
               </div>
               <div className="actions flex gap-4 max-[440px]:justify-center">
-                <ButtonSecondary
-                  label="My resume"
-                  icon={FaFileLines}
-                  reverse={true}
+                <a
+                  className="primary flex text-base h-fit w-fit flex-row-reverse items-center gap-x-2 bg-surface-secondary hover:bg-surface-tertiary py-4 px-4 rounded-lg transition-colors"
+                  href="/public/CV_-_Yuri_Santana_-_Desenvolvedor.pdf"
+                  download="CV - Yuri Santana"
+                >
+                  My Resume
+                  <span className="text-2xl">
+                    <FaFileLines />
+                  </span>
+                </a>
+                <Button
+                  action={handleScroll}
+                  label="Get in touch"
+                  icon={FaArrowRightLong}
                 />
-                <Button label="Get in touch" icon={FaArrowRightLong} />
               </div>
             </div>
           </div>
@@ -113,7 +127,16 @@ export default function Home() {
                   challenges.
                 </p>
               </div>
-              <Button label="My resume" icon={FaFileLines} reverse={true} />
+              <a
+                className="primary flex text-base h-fit w-fit flex-row-reverse items-center gap-x-2 bg-primary-500 hover:bg-primary-400 py-4 px-4 rounded-lg transition-colors"
+                href="/public/CV_-_Yuri_Santana_-_Desenvolvedor.pdf"
+                download="CV - Yuri Santana"
+              >
+                My Resume
+                <span className="text-2xl">
+                  <FaFileLines />
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -124,7 +147,7 @@ export default function Home() {
           <h2 className="text-2xl text-center font-bold">
             Take a look at my highlighted projects
           </h2>
-          <div className="flex gap-8 justify-center my-10">
+          <div className="flex gap-8 justify-center my-10 flex-grow flex-wrap">
             {projects.map((project: ProjectCardProps) => (
               <ProjectCard
                 created_at={project.created_at.split(",")[0].slice(0, 3)}

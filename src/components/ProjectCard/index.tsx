@@ -2,6 +2,10 @@
 import { IconType } from "react-icons";
 import Default from "../../assets/default_project_image.png";
 import { ProjectCardProps } from "../../data/Projects";
+import { IconButton } from "../Buttons";
+import { DiGithubBadge } from "react-icons/di";
+import { GoArrowUpRight } from "react-icons/go";
+import React, { useState } from "react";
 
 // interface ProjectCardProps {
 //   image: string;
@@ -34,11 +38,37 @@ export function ProjectCard(props: ProjectCardProps) {
     return icon as JSX.Element;
   }
 
+  const [isMouseOver, setIsMouseOver] = useState(false);
+
+  function handleMouseEnter() {
+    console.log("entrou");
+    setIsMouseOver(true);
+  }
+
+  function handleMouseLeave() {
+    console.log("saiu");
+    setIsMouseOver(false);
+  }
+
   return (
-    <div className="flex max-[440px]:p-4 p-6 flex-col bg-surface-primary max-[440px]:w-full h-fit w-[24rem] rounded-2xl hover:shadow-[0_0_45px_0_rgba(125,255,175,0.24)] border-[1px] border-surface-primary hover:border-[1px] hover:border-secondary hover:cursor-pointer transition ">
-      <div className="bg-primary-400 rounded-t-lg h-40">
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="flex relative max-[440px]:p-4 p-6 flex-col bg-surface-primary max-[440px]:w-full h-fit w-[24rem] rounded-2xl hover:shadow-[0_0_45px_0_rgba(125,255,175,0.24)] border-[1px] border-surface-primary hover:border-[1px] hover:border-secondary hover:cursor-pointer transition "
+    >
+      <div
+        className={
+          isMouseOver
+            ? "flex flex-col absolute gap-2 right-4 top-4 ease-in transition-all"
+            : "hidden"
+        }
+      >
+        <IconButton icon={DiGithubBadge} />
+        <IconButton icon={GoArrowUpRight} />
+      </div>
+      <div className="bg-primary-400 rounded-t-lg h-40 flex justify-center">
         <img
-          className="rounded-t-lg h-40 "
+          className="rounded-t-lg h-40"
           src={image || Default}
           alt="alt text"
         />

@@ -7,6 +7,9 @@ import {
   BiLogoTailwindCss,
 } from "react-icons/bi";
 import { SiJest } from "react-icons/si";
+import ApiRestCover from "../../assets/api-rest-church.png";
+import AngularChurchCover from "../../assets/api-church-cover.png";
+import StrategicCover from "../../assets/strategic-portfolio-cover.png";
 
 export interface ProjectCardProps {
   id: number;
@@ -18,10 +21,9 @@ export interface ProjectCardProps {
   short_project_description: string;
 }
 
-// Resolver problema de renderização da imagem com os caminhos
 const project1: ProjectCardProps = {
   id: 1,
-  image: "",
+  image: ApiRestCover,
   created_at: "Juny, 2023",
   finished_at: "September, 2023",
   techs: [BiLogoNodejs, BiLogoTypescript, SiJest],
@@ -31,7 +33,7 @@ const project1: ProjectCardProps = {
 
 const project2: ProjectCardProps = {
   id: 2,
-  image: "",
+  image: AngularChurchCover,
   created_at: "September, 2023",
   finished_at: "Octuber, 2023",
   techs: [BiLogoTypescript, BiLogoAngular],
@@ -41,7 +43,7 @@ const project2: ProjectCardProps = {
 
 const project3: ProjectCardProps = {
   id: 3,
-  image: "",
+  image: StrategicCover,
   created_at: "January, 2024",
   finished_at: "January, 2024",
   techs: [BiLogoReact, BiLogoTypescript, BiLogoTailwindCss],
