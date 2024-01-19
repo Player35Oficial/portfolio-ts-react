@@ -19,6 +19,13 @@ export interface ProjectCardProps {
   techs: IconType[];
   project_name: string;
   short_project_description: string;
+  more?: {
+    my_role: string;
+    team: string[] | string;
+    paragraph1: string;
+    paragraph2: string;
+    paragraph3: string;
+  };
 }
 
 const project1: ProjectCardProps = {
@@ -29,6 +36,15 @@ const project1: ProjectCardProps = {
   techs: [BiLogoNodejs, BiLogoTypescript, SiJest],
   project_name: "API Rest - Church",
   short_project_description: "Open source REST API.",
+  more: {
+    my_role: "Backend Developer, Database Modeler",
+    team: "Me",
+    paragraph1: "This API has developed to improve API development skills.",
+    paragraph2:
+      "The enhanced skills include: Route Management with Express; Body, query and Params validations with Yup; Automated tests with JEST.",
+    paragraph3:
+      "The prject has modeled based on a Church context that a little department of Finances needed a platform to register Inputs and outputs of contributions",
+  },
 };
 
 const project2: ProjectCardProps = {
@@ -39,6 +55,15 @@ const project2: ProjectCardProps = {
   techs: [BiLogoTypescript, BiLogoAngular],
   project_name: "Angular Church",
   short_project_description: "Open Source Church Tithe/Offering Manager.",
+  more: {
+    my_role: "Frontend Developer",
+    team: "Me",
+    paragraph1:
+      "A Responsive Website to access a system of contributions in a church context",
+    paragraph2:
+      "It has been developed using Angular (and Typescript), while i was studying about it",
+    paragraph3: "",
+  },
 };
 
 const project3: ProjectCardProps = {
@@ -49,6 +74,15 @@ const project3: ProjectCardProps = {
   techs: [BiLogoReact, BiLogoTypescript, BiLogoTailwindCss],
   project_name: "Strategic Portfolio",
   short_project_description: "Source code of this site.",
+  more: {
+    my_role: "Frontend Developer",
+    team: "Me",
+    paragraph1: "Is this Website, that you using at this moment",
+    paragraph2:
+      "It has been developed using React with Typescript and Tailwind",
+    paragraph3:
+      "The purpose to the development this site has to improve my React and Typescript skills and learn Tailwind CSS in practice. And update my last portfolio site.",
+  },
 };
 
 export { project1, project2, project3 };

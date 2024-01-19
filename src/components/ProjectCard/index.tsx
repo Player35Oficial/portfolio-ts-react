@@ -5,7 +5,7 @@ import { ProjectCardProps } from "../../data/Projects";
 import { IconButton } from "../Buttons";
 import { DiGithubBadge } from "react-icons/di";
 import { GoArrowUpRight } from "react-icons/go";
-import React, { useState } from "react";
+import { useState } from "react";
 
 // interface ProjectCardProps {
 //   image: string;
@@ -16,8 +16,21 @@ import React, { useState } from "react";
 //   short_project_description: string;
 // }
 
+// ignorar o erro de falta de argumentos dentro da condicional de função no retorno da função abaixo
+function convertToReactNode(
+  icon: IconType | (() => JSX.Element) | JSX.Element
+): JSX.Element {
+  if (typeof icon === "function") {
+    return icon();
+  }
+
+  // Se icon não for uma função, assumimos que é um JSX.Element ou um tipo equivalente.
+  return icon as JSX.Element;
+}
+
 export function ProjectCard(props: ProjectCardProps) {
   const {
+    id,
     image,
     created_at,
     finished_at,
@@ -26,34 +39,25 @@ export function ProjectCard(props: ProjectCardProps) {
     short_project_description,
   } = props;
 
-  // ignorar o erro de falta de argumentos dentro da condicional de função no retorno da função abaixo
-  function convertToReactNode(
-    icon: IconType | (() => JSX.Element) | JSX.Element
-  ): JSX.Element {
-    if (typeof icon === "function") {
-      return icon();
-    }
-
-    // Se icon não for uma função, assumimos que é um JSX.Element ou um tipo equivalente.
-    return icon as JSX.Element;
-  }
-
   const [isMouseOver, setIsMouseOver] = useState(false);
 
   function handleMouseEnter() {
-    console.log("entrou");
     setIsMouseOver(true);
   }
 
   function handleMouseLeave() {
-    console.log("saiu");
     setIsMouseOver(false);
+  }
+
+  function handleClick() {
+    open(`/project/${id}`, "_self");
   }
 
   return (
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
       className="flex relative max-[440px]:p-4 p-6 flex-col bg-surface-primary max-[440px]:w-full h-fit w-[24rem] rounded-2xl hover:shadow-[0_0_45px_0_rgba(125,255,175,0.24)] border-[1px] border-surface-primary hover:border-[1px] hover:border-secondary hover:cursor-pointer transition "
     >
       <div
@@ -95,47 +99,50 @@ export function ProjectCard(props: ProjectCardProps) {
   );
 }
 
-export function ProjectCardFull() {
+export function ProjectCardFull(props: ProjectCardProps) {
+  const { created_at, finished_at, image, project_name, techs, more } = props;
+
   return (
     <article className="lg:max-w-[800px] lg:rounded-lg">
-      <div className="flex pb-12 flex-col bg-surface-primary min-[320px]:w-full h-fit w-[24rem] gap-6 lg:rounded-lg">
-        <div className="bg-primary-400 h-40 lg:rounded-t-lg overflow-hidden">
-          <img className="h-40 w-full" src={"" || Default} alt="alt text" />
+      <div className="flex pb-4 flex-col bg-surface-primary min-[320px]:w-full h-fit w-[24rem] gap-6 lg:rounded-lg">
+        <div className="bg-gradient-to-r from-primary-500 to-secondary h-40 lg:h-80 lg:rounded-t-lg overflow-hidden flex justify-center">
+          <img
+            className="h-40 lg:h-80 w-full lg:w-fit"
+            src={image || Default}
+            alt="alt text"
+          />
         </div>
-        <div className="my-4 flex justify-between  px-4">
-          <p className="text-text-secondary">Jul - Dec 2022</p>
-          <div className="stacks text-techs-colors">resolver</div>
+        <div className="flex justify-between  px-8 items-center">
+          <p className="text-text-secondary">
+            {created_at.split(",")[0].slice(0, 3)} -{" "}
+            {finished_at.split(",")[0].slice(0, 3) +
+              " " +
+              finished_at.split(",")[1]}
+          </p>
+          <div className="stacks text-techs-colors flex text-3xl gap-4">
+            {techs.map((icon, index) => (
+              <span key={index}>{convertToReactNode(icon)}</span>
+            ))}
+          </div>
         </div>
-        <h2 className="text-4xl px-4 font-medium text-text-primary">
-          Feedback Widget
+        <h2 className="text-4xl px-8 font-medium text-text-primary">
+          {project_name}
         </h2>
-        <div className="text-text-secondary text-lg px-4 ">
+        <div className="text-text-secondary text-lg px-8 ">
           <p>
-            <span className="font-bold leading-8">My role:</span> Full-stack
-            developer
+            <span className="font-bold leading-8">My role:</span>{" "}
+            {more?.my_role}
           </p>
           <p>
-            <span className="font-bold leading-8">Team:</span> Marcus Souza(PM),
-            Ilana Mallak (UX/UI Designer)
+            <span className="font-bold leading-8">Team: </span>
+            {more?.team}
           </p>
         </div>
-        <div className=" w-[100%] gap-2 flex flex-col text-lg text-text-secondary px-4">
+        <div className=" w-[100%] gap-2 flex flex-col text-lg text-text-secondary px-8">
           <div className="flex flex-col gap-6 leading-8">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Assumenda at dolorum, illo qui porro. Illo qui porro.
-            </p>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Assumenda at dolorum, illo qui porro necessitatibus quibusdam
-              illum maxime expedita ipsa eaque.
-            </p>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Assumenda at dolorum, illo qui porro necessitatibus quibusdam
-              illum maxime expedita ipsa eaque totam quisquam ad perspiciatis
-              reiciendis veniam culpa ut nesciunt.
-            </p>
+            <p>{more?.paragraph1}</p>
+            <p>{more?.paragraph2}</p>
+            <p>{more?.paragraph3}</p>
           </div>
         </div>
       </div>
