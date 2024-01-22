@@ -2,19 +2,11 @@
 import { IconType } from "react-icons";
 import Default from "../../assets/default_project_image.png";
 import { ProjectCardProps } from "../../data/Projects";
-import { IconButton } from "../Buttons";
+// import { IconButton } from "../Buttons";
 import { DiGithubBadge } from "react-icons/di";
 import { GoArrowUpRight } from "react-icons/go";
 import { useState } from "react";
-
-// interface ProjectCardProps {
-//   image: string;
-//   created_at: string;
-//   finished_at: string;
-//   techs: string;
-//   project_name: string;
-//   short_project_description: string;
-// }
+import { Link } from "react-router-dom";
 
 // ignorar o erro de falta de argumentos dentro da condicional de função no retorno da função abaixo
 function convertToReactNode(
@@ -37,6 +29,7 @@ export function ProjectCard(props: ProjectCardProps) {
     techs,
     project_name,
     short_project_description,
+    repository_url,
   } = props;
 
   const [isMouseOver, setIsMouseOver] = useState(false);
@@ -49,16 +42,20 @@ export function ProjectCard(props: ProjectCardProps) {
     setIsMouseOver(false);
   }
 
-  function handleClick() {
-    open(`/project/${id}`, "_self");
-  }
+  // function handleClick() {
+  //   redirect(`/project/${id}`);
+  //   console.log("click");
+  // }
 
   return (
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
-      className="flex relative max-[440px]:p-4 p-6 flex-col bg-surface-primary max-[440px]:w-full h-fit w-[24rem] rounded-2xl hover:shadow-[0_0_45px_0_rgba(125,255,175,0.24)] border-[1px] border-surface-primary hover:border-[1px] hover:border-secondary hover:cursor-pointer transition "
+      tabIndex={0}
+      // ref={cardRef}
+      onFocus={handleMouseEnter}
+      onBlur={handleMouseLeave}
+      className="flex relative max-[440px]:p-4 p-6 flex-col bg-surface-primary max-[440px]:w-full h-fit w-[24rem] rounded-2xl hover:shadow-[0_0_45px_0_rgba(125,255,175,0.24)] border-[1px] border-surface-primary hover:border-[1px] hover:border-secondary focus:border-[1px] focus:border-secondary focus:shadow-[0_0_45px_0_rgba(125,255,175,0.24)] transition "
     >
       <div
         className={
@@ -67,8 +64,23 @@ export function ProjectCard(props: ProjectCardProps) {
             : "hidden"
         }
       >
-        <IconButton icon={DiGithubBadge} />
-        <IconButton icon={GoArrowUpRight} />
+        <a
+          className="text-2xl p-2 bg-surface-background hover:bg-surface-primary rounded-lg transition-colors"
+          href={repository_url}
+          target="_blank"
+        >
+          <span className="text-2xl">
+            <DiGithubBadge />
+          </span>
+        </a>
+        <Link
+          className="text-2xl p-2 bg-surface-background hover:bg-surface-primary rounded-lg transition-colors"
+          to={`project/${id}`}
+        >
+          <span className="text-2xl">
+            <GoArrowUpRight />
+          </span>
+        </Link>
       </div>
       <div className="bg-primary-400 rounded-t-lg h-40 flex justify-center">
         <img

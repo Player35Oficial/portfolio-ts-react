@@ -160,6 +160,7 @@ export default function Home() {
                 project_name={project.project_name}
                 short_project_description={project.short_project_description}
                 techs={project.techs}
+                repository_url={project.repository_url}
                 key={project.id}
                 id={project.id}
               />

@@ -26,6 +26,8 @@ export interface ProjectCardProps {
     paragraph2: string;
     paragraph3: string;
   };
+  live_demo_url?: string;
+  repository_url: string;
 }
 
 const project1: ProjectCardProps = {
@@ -45,6 +47,7 @@ const project1: ProjectCardProps = {
     paragraph3:
       "The prject has modeled based on a Church context that a little department of Finances needed a platform to register Inputs and outputs of contributions",
   },
+  repository_url: "https://github.com/Player35Oficial/api-rest-church",
 };
 
 const project2: ProjectCardProps = {
@@ -64,6 +67,7 @@ const project2: ProjectCardProps = {
       "It has been developed using Angular (and Typescript), while i was studying about it",
     paragraph3: "",
   },
+  repository_url: "https://github.com/Player35Oficial/angular-church",
 };
 
 const project3: ProjectCardProps = {
@@ -83,6 +87,8 @@ const project3: ProjectCardProps = {
     paragraph3:
       "The purpose to the development this site has to improve my React and Typescript skills and learn Tailwind CSS in practice. And update my last portfolio site.",
   },
+  repository_url:
+    "https://github.com/Player35Oficial/strategic-portfolio-react-typescript",
 };
 
 export { project1, project2, project3 };
