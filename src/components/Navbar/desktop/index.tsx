@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { IconButton } from "../../Buttons";
 import { LuLanguages, LuSunMedium } from "react-icons/lu";
@@ -11,9 +10,6 @@ export default function Navbar(props: NavBarProps) {
   const { navbarLogo } = props;
 
   const local = useLocation();
-  useEffect(() => {
-    console.log(local);
-  }, [local]);
 
   const activeStyle = "text-text-primary font-bold p-2";
 
@@ -25,26 +21,26 @@ export default function Navbar(props: NavBarProps) {
       <div className="flex gap-4">
         <nav className="flex gap-4 text-text-secondary">
           <a
-            href="#home"
+            href="/#home"
             className={local.hash === "/#home" ? activeStyle : "p-2"}
           >
             Home
           </a>
           <a
-            href="#about"
+            href="/#about"
             className={local.hash === "#about" ? activeStyle : "p-2"}
           >
             About
           </a>
           <a
             className={local.hash === "#projects" ? activeStyle : "p-2"}
-            href="#projects"
+            href="/#projects"
           >
             Projects
           </a>
           <a
             className={local.hash === "#contact" ? activeStyle : "p-2"}
-            href="#contact"
+            href="/#contact"
           >
             Contact
           </a>

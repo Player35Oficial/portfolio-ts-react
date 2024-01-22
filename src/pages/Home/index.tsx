@@ -1,9 +1,5 @@
 import FirstImage from "../../assets/telecommuting-animate.svg";
-import {
-  Button,
-  ButtonSecondary,
-  IconButtonSecondary,
-} from "../../components/Buttons";
+import { Button, ButtonSecondary } from "../../components/Buttons";
 import { FaFileLines, FaArrowRightLong } from "react-icons/fa6";
 import Arrow from "../../assets/arrow.svg";
 import DevFigure from "../../assets/operating system-amico.svg";
@@ -19,7 +15,7 @@ import {
   IoLogoLinkedin,
 } from "react-icons/io5";
 import ContactFigure from "../../assets/good-team-pana.svg";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import {
   ProjectCardProps,
   project1,
@@ -27,9 +23,13 @@ import {
   project3,
 } from "../../data/Projects";
 import { ProjectCard } from "../../components/ProjectCard";
+import emailjs from "@emailjs/browser";
 
 export default function Home() {
   const [projects, setProjects] = useState([project1, project2, project3]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     setProjects(projects);
@@ -38,6 +38,35 @@ export default function Home() {
 
   function handleScroll() {
     open("/#contact", "_self");
+  }
+
+  const templateParams = {
+    from_name: name,
+    message: message,
+    email: email,
+  };
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAIJS_SERVICE_ID,
+        import.meta.env.VITE_EMAIJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAIJS_PUBLIC_KEY
+      )
+      .then(
+        (response) => {
+          console.log("EMAIL ENVIADO", response.status, response.text);
+          setName("");
+          setEmail("");
+          setMessage("");
+        },
+        (err) => {
+          console.log("ERRO: ", err);
+        }
+      );
   }
 
   return (
@@ -199,20 +228,46 @@ export default function Home() {
                 or give me a shout on social media.
               </p>
               <div className="actions flex gap-2">
-                <IconButtonSecondary icon={DiGithubBadge} />
-                <IconButtonSecondary icon={IoLogoLinkedin} />
-                <IconButtonSecondary icon={IoLogoInstagram} />
+                <a
+                  className="text-2xl p-2 bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors"
+                  href="https://github.com/Player35Oficial"
+                  target="blank"
+                >
+                  <span>
+                    <DiGithubBadge />
+                  </span>
+                </a>
+                <a
+                  className="text-2xl p-2 bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors"
+                  href="https://www.linkedin.com/in/yuri-player35/"
+                  target="blank"
+                >
+                  <span>
+                    <IoLogoLinkedin />
+                  </span>
+                </a>
+                <a
+                  className="text-2xl p-2 bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors"
+                  href="https://www.instagram.com/player35_dev/"
+                  target="blank"
+                >
+                  <span>
+                    <IoLogoInstagram />
+                  </span>
+                </a>
               </div>
             </div>
           </div>
           <div className="w-full">
-            <form className="flex flex-col gap-4 mt-12">
+            <form className="flex flex-col gap-4 mt-12" onSubmit={handleSubmit}>
               <input
                 className="bg-surface-background placeholder-text-secondary px-4 py-3 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary"
                 type="text"
                 name="name"
                 id="name"
                 placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               <input
                 className="bg-surface-background placeholder-text-secondary px-4 py-3 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary"
@@ -220,6 +275,8 @@ export default function Home() {
                 name="email"
                 id="email"
                 placeholder="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <textarea
                 className="bg-surface-background placeholder-text-secondary px-4 py-3 mb-4 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary resize-none"
@@ -227,6 +284,8 @@ export default function Home() {
                 id="message"
                 placeholder="Your message"
                 rows={8}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
 
               <Button label="Send me a message" icon={FaArrowRightLong} />
