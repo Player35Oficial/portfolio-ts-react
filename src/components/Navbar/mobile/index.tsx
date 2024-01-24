@@ -5,11 +5,15 @@ import { useEffect, useState } from "react";
 
 interface NavBarProps {
   navbarLogo: string;
+  navbarLogoDark?: string;
 }
 
 export default function NavbarMobile(props: NavBarProps) {
-  const { navbarLogo } = props;
+  const { navbarLogo, navbarLogoDark } = props;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState(
+    localStorage.getItem("theme")
+  );
 
   const local = useLocation();
   useEffect(() => {
@@ -28,10 +32,12 @@ export default function NavbarMobile(props: NavBarProps) {
     if (localStorage.getItem("theme") == "dark") {
       html?.classList.remove("dark");
       html?.classList.add("light");
+      setCurrentTheme("light");
       localStorage.setItem("theme", "light");
     } else {
       html?.classList.remove("light");
       html?.classList.add("dark");
+      setCurrentTheme("dark");
       localStorage.setItem("theme", "dark");
     }
   }
@@ -39,7 +45,12 @@ export default function NavbarMobile(props: NavBarProps) {
   return (
     <header className="fixed flex z-20 justify-between dark:bg-light-surface-background bg-surface-background drop-shadow-lg p-4 w-[100%] h-20 items-center">
       <div>
-        <img src={navbarLogo} alt="" />
+        <img
+          src={
+            currentTheme === "light" ? navbarLogo : navbarLogoDark || navbarLogo
+          }
+          alt=""
+        />
       </div>
       <div className="text-text-primary text-4xl">
         <IconButton icon={LuMenu} action={handleMenu} />

@@ -1,13 +1,18 @@
 import { useLocation } from "react-router-dom";
 import { IconButton } from "../../Buttons";
 import { LuLanguages, LuSunMedium } from "react-icons/lu";
+import { useState } from "react";
 
 interface NavBarProps {
   navbarLogo: string;
+  navbarLogoDark?: string;
 }
 
 export default function Navbar(props: NavBarProps) {
-  const { navbarLogo } = props;
+  const { navbarLogo, navbarLogoDark } = props;
+  const [currentTheme, setCurrentTheme] = useState(
+    localStorage.getItem("theme")
+  );
 
   function toggleTheme() {
     const html = window.document.querySelector("html");
@@ -15,10 +20,12 @@ export default function Navbar(props: NavBarProps) {
     if (localStorage.getItem("theme") == "dark") {
       html?.classList.remove("dark");
       html?.classList.add("light");
+      setCurrentTheme("light");
       localStorage.setItem("theme", "light");
     } else {
       html?.classList.remove("light");
       html?.classList.add("dark");
+      setCurrentTheme("dark");
       localStorage.setItem("theme", "dark");
     }
   }
@@ -31,7 +38,12 @@ export default function Navbar(props: NavBarProps) {
   return (
     <header className="fixed flex z-20 justify-between dark:bg-light-surface-background bg-surface-background drop-shadow-lg px-20 w-[100%] h-20 items-center">
       <div>
-        <img src={navbarLogo} alt="developer logo" />
+        <img
+          src={
+            currentTheme === "light" ? navbarLogo : navbarLogoDark || navbarLogo
+          }
+          alt="developer logo"
+        />
       </div>
       <div className="flex gap-4">
         <nav className="flex gap-4 text-text-secondary dark:text-light-text-secondary">

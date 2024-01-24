@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar/desktop";
 import NavbarMobile from "./components/Navbar/mobile";
 import logo from "./assets/YuriSantana.svg";
+import darkLogo from "./assets/YuriSantana-dark.svg";
 import Project from "./pages/Project";
 import { IconButton } from "./components/Buttons";
 import { FaArrowUp } from "react-icons/fa6";
@@ -18,7 +19,7 @@ function App() {
   return (
     <Router>
       {windowWidth > 768 ? (
-        <Navbar navbarLogo={logo} />
+        <Navbar navbarLogo={logo} navbarLogoDark={darkLogo} />
       ) : (
         <NavbarMobile navbarLogo={logo} />
       )}
