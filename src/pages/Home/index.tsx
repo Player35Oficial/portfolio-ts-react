@@ -1,5 +1,5 @@
 import FirstImage from "../../assets/telecommuting-animate.svg";
-import { Button, ButtonSecondary } from "../../components/Buttons";
+import { Button } from "../../components/Buttons";
 import { FaFileLines, FaArrowRightLong } from "react-icons/fa6";
 import Arrow from "../../assets/arrow.svg";
 import DevFigure from "../../assets/operating system-amico.svg";
@@ -86,10 +86,10 @@ export default function Home() {
                 Hi, I'm Yuri
               </span>
               <div className="details flex flex-col gap-4">
-                <p className="role text-2xl font-medium">
+                <p className="role text-2xl font-medium dark:text-light-text-primary">
                   Javascript Developer and design enthusiast
                 </p>
-                <p className="auto-description text-text-secondary text-base">
+                <p className="auto-description text-text-secondary text-base dark:text-light-text-secondary">
                   Over 2 years of experience in javascript development. I
                   enthusiast in building web applications using technologies
                   such as Javascript, Angular , and Node.js.
@@ -97,7 +97,7 @@ export default function Home() {
               </div>
               <div className="actions flex gap-4 max-[440px]:justify-center">
                 <a
-                  className="primary flex text-base h-fit w-fit flex-row-reverse items-center gap-x-2 bg-surface-secondary hover:bg-surface-tertiary py-4 px-4 rounded-lg transition-colors"
+                  className="primary flex text-base h-fit w-fit flex-row-reverse items-center gap-x-2 bg-surface-secondary dark:bg-light-surface-secondary dark:text-light-text-primary hover:bg-surface-tertiary dark:hover:bg-light-surface-tertiary py-4 px-4 rounded-lg transition-colors"
                   href="/public/CV_-_Yuri_Santana_-_Desenvolvedor.pdf"
                   download="CV - Yuri Santana"
                 >
@@ -121,7 +121,7 @@ export default function Home() {
           />
         </div>
         <div
-          className="py-8 lg:mt-20 sm:mt-8 xl:px-16 xl:m-10 xl:rounded-2xl lg:px-16 lg:m-10 lg:rounded-2xl h-auto bg-surface-primary scroll-m-20"
+          className="py-8 lg:mt-20 sm:mt-8 xl:px-16 xl:m-10 xl:rounded-2xl lg:px-16 lg:m-10 lg:rounded-2xl h-auto bg-surface-primary dark:bg-light-surface-primary scroll-m-20"
           id="about"
         >
           <div className="xl:flex xl:justify-evenly xl:items-center lg:flex lg:justify-evenly lg:items-center">
@@ -140,14 +140,14 @@ export default function Home() {
                 <DiNodejsSmall />
               </div>
               <div>
-                <span className="block font-kalam text-secondary mb-2">
+                <span className="block font-kalam text-secondary dark:text-light-text-secondary mb-2">
                   About me
                 </span>
-                <h2 className="role text-2xl font-medium mb-4">
+                <h2 className="role text-2xl dark:text-light-text-primary font-medium mb-4">
                   I'm a passionate software developer looking for my first IT
                   opportunity
                 </h2>
-                <p className="text-text-secondary mb-12">
+                <p className="text-text-secondary dark:text-light-text-secondary mb-12">
                   Beyond coding, I'm a coffee enthusiast, a cat lover, and a
                   self-taught artist who enjoys spending my free time doodling.
                   I am currently seeking opportunities to bring my skills and
@@ -170,10 +170,10 @@ export default function Home() {
           </div>
         </div>
         <div className="pt-20 h-fit py-12 px-6 scroll-m-20" id="projects">
-          <p className="text-base text-secondary text-center font-kalam ">
+          <p className="text-base text-secondary dark:text-light-text-secondary text-center font-kalam ">
             Projects
           </p>
-          <h2 className="text-2xl text-center font-bold">
+          <h2 className="text-2xl text-center dark:text-light-text-primary font-bold">
             Take a look at my highlighted projects
           </h2>
           <div className="flex gap-8 justify-center my-10 flex-grow flex-wrap">
@@ -195,13 +195,11 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className="flex justify-center">
-            <ButtonSecondary label="See all" icon={FaArrowRightLong} />
-          </div>
+          <div className="flex justify-center"></div>
           <div className="projects-container flex gap-6 flex-col"></div>
         </div>
         <div
-          className="py-12 h-auto bg-surface-primary px-6 scroll-m-20 lg:flex lg:items-center lg:px-16 lg:m-10 lg:rounded-2xl xl:justify-between gap-32"
+          className="py-12 h-auto bg-surface-primary dark:bg-light-surface-primary px-6 scroll-m-20 lg:flex lg:items-center lg:px-16 lg:m-10 lg:rounded-2xl xl:justify-between gap-32"
           id="contact"
         >
           <div className="">
@@ -211,17 +209,17 @@ export default function Home() {
               alt="contact figure"
             />
             <div className="flex flex-col gap-4 lg:max-w-xl xl:max-w-xl">
-              <p className="text-base font-kalam text-secondary mb-2 xl:-mb-2 xl:mt-8">
+              <p className="text-base font-kalam text-secondary dark:text-text-secondary mb-2 xl:-mb-2 xl:mt-8">
                 Contacts
               </p>
-              <h2 className="text-2xl font-bold">
+              <h2 className="text-2xl font-bold dark:text-light-text-primary">
                 Enjoyed my work? Let's work together
               </h2>
-              <p>
+              <p className="dark:text-light-text-secondary">
                 I'm always up for a chat. Pop me an email at{" "}
                 <a
                   href="mailto:yuri.dev35@gmail.com"
-                  className="text-secondary underline"
+                  className="text-secondary underline dark:text-primary-400"
                 >
                   yuri.dev35@gmail.com
                 </a>{" "}
@@ -229,29 +227,29 @@ export default function Home() {
               </p>
               <div className="actions flex gap-2">
                 <a
-                  className="text-2xl p-2 bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors"
+                  className="text-2xl p-2 bg-surface-secondary dark:bg-light-surface-secondary hover:bg-surface-tertiary dark:hover:bg-light-surface-tertiary rounded-lg transition-colors"
                   href="https://github.com/Player35Oficial"
                   target="blank"
                 >
-                  <span>
+                  <span className="dark:text-light-text-primary">
                     <DiGithubBadge />
                   </span>
                 </a>
                 <a
-                  className="text-2xl p-2 bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors"
+                  className="text-2xl p-2 bg-surface-secondary dark:bg-light-surface-secondary hover:bg-surface-tertiary dark:hover:bg-light-surface-tertiary rounded-lg transition-colors"
                   href="https://www.linkedin.com/in/yuri-player35/"
                   target="blank"
                 >
-                  <span>
+                  <span className="dark:text-light-text-primary">
                     <IoLogoLinkedin />
                   </span>
                 </a>
                 <a
-                  className="text-2xl p-2 bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors"
+                  className="text-2xl p-2 bg-surface-secondary dark:bg-light-surface-secondary hover:bg-surface-tertiary dark:hover:bg-light-surface-tertiary rounded-lg transition-colors"
                   href="https://www.instagram.com/player35_dev/"
                   target="blank"
                 >
-                  <span>
+                  <span className="dark:text-light-text-primary">
                     <IoLogoInstagram />
                   </span>
                 </a>
@@ -261,7 +259,7 @@ export default function Home() {
           <div className="w-full">
             <form className="flex flex-col gap-4 mt-12" onSubmit={handleSubmit}>
               <input
-                className="bg-surface-background placeholder-text-secondary px-4 py-3 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary"
+                className="bg-surface-background dark:bg-light-surface-background placeholder-text-secondary dark:placeholder-light-text-secondary px-4 py-3 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary"
                 type="text"
                 name="name"
                 id="name"
@@ -270,7 +268,7 @@ export default function Home() {
                 onChange={(e) => setName(e.target.value)}
               />
               <input
-                className="bg-surface-background placeholder-text-secondary px-4 py-3 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary"
+                className="bg-surface-background dark:bg-light-surface-background placeholder-text-secondary dark:placeholder-light-text-secondary px-4 py-3 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary"
                 type="email"
                 name="email"
                 id="email"
@@ -279,7 +277,7 @@ export default function Home() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <textarea
-                className="bg-surface-background placeholder-text-secondary px-4 py-3 mb-4 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary resize-none"
+                className="bg-surface-background dark:bg-light-surface-background placeholder-text-secondary dark:placeholder-light-text-secondary px-4 py-3 mb-4 rounded-xl w-full focus-visible:ring focus-visible:ring-secondary resize-none"
                 name="message"
                 id="message"
                 placeholder="Your message"

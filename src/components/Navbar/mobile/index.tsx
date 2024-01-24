@@ -22,8 +22,22 @@ export default function NavbarMobile(props: NavBarProps) {
     setMenuIsOpen(!menuIsOpen);
   }
 
+  function toggleTheme() {
+    const html = window.document.querySelector("html");
+
+    if (localStorage.getItem("theme") == "dark") {
+      html?.classList.remove("dark");
+      html?.classList.add("light");
+      localStorage.setItem("theme", "light");
+    } else {
+      html?.classList.remove("light");
+      html?.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+  }
+
   return (
-    <header className="fixed flex z-20 justify-between bg-surface-background drop-shadow-lg p-4 w-[100%] h-20 items-center">
+    <header className="fixed flex z-20 justify-between dark:bg-light-surface-background bg-surface-background drop-shadow-lg p-4 w-[100%] h-20 items-center">
       <div>
         <img src={navbarLogo} alt="" />
       </div>
@@ -64,9 +78,9 @@ export default function NavbarMobile(props: NavBarProps) {
             </a>
           </nav>
 
-          <div className="actions text-text-primary flex gap-4 pt-4 mx-8 justify-end">
+          <div className="actions text-text-primary dark:text-light-text-primary flex gap-4 pt-4 mx-8 justify-end">
             <IconButtonSecondary icon={LuLanguages} />
-            <IconButtonSecondary icon={LuSunMedium} />
+            <IconButtonSecondary icon={LuSunMedium} action={toggleTheme} />
           </div>
         </div>
       )}

@@ -54,7 +54,7 @@ export const IconButton = (props: IconButtonProps) => {
   return (
     <button
       onClick={action}
-      className="text-2xl p-2 bg-surface-background hover:bg-surface-primary rounded-lg transition-colors"
+      className="text-2xl p-2 bg-surface-background dark:bg-light-surface-background hover:bg-surface-primary dark:hover:bg-light-surface-primary dark:text-light-text-secondary rounded-lg transition-colors"
     >
       {Icon && <Icon />}
     </button>
@@ -64,7 +64,7 @@ export const IconButtonSecondary = (props: IconButtonProps) => {
   const { icon: Icon } = props;
 
   return (
-    <button className="text-2xl p-2 bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors">
+    <button className="text-2xl p-2 dark:bg-light-surface-secondary dark:hover:bg-light-surface-tertiary bg-surface-secondary hover:bg-surface-tertiary rounded-lg transition-colors">
       {Icon && <Icon />}
     </button>
   );
