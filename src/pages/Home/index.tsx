@@ -89,12 +89,9 @@ export default function Home() {
                   Javascript Developer and design enthusiast
                 </p>
                 <p className="auto-description text-text-secondary text-base dark:text-light-text-secondary">
-                  In addition to coding, I'm an apple tea enthusiast, a dog
-                  lover, and a self-taught philosopher who enjoys spending his
-                  free time studying Stoicism. At the moment I am looking for
-                  opportunities to take my skills to technology companies in
-                  Brazil, with the prospect of being admitted to international
-                  vacancies soon.
+                  More than 2 years of experience in Javascript development.
+                  Enthusiast in building web applications using technologies
+                  such as Javascript/Typescript, Angular and Node.js.
                 </p>
               </div>
               <div className="actions flex gap-4 max-[440px]:justify-center">
@@ -150,12 +147,12 @@ export default function Home() {
                   opportunity
                 </h2>
                 <p className="text-text-secondary dark:text-light-text-secondary mb-12">
-                  Beyond coding, I'm a coffee enthusiast, a cat lover, and a
-                  self-taught artist who enjoys spending my free time doodling.
-                  I am currently seeking opportunities to bring my skills and
-                  enthusiasm to a tech company in the United States or Europe
-                  and am excited about the prospect of relocating to pursue new
-                  challenges.
+                  Beyond to coding, I am an apple tea enthusiast, a dog lover
+                  and a self-taught philosopher who likes to spend his free time
+                  studying Stoicism. At the moment I am looking for
+                  opportunities to take my skills to technology companies in
+                  Brazil, with the prospect of being admitted to international
+                  vacancies soon.
                 </p>
               </div>
               <a

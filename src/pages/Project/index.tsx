@@ -25,6 +25,7 @@ export default function Project() {
             <a
               className="justify-between w-full primary flex text-base h-fit items-center gap-x-2 bg-primary-500 hover:bg-primary-400 py-4 px-4 rounded-lg transition-colors"
               href={project1.live_demo_url}
+              target="blank"
             >
               <i className="text-2xl">
                 <PiGlobe />
@@ -38,6 +39,7 @@ export default function Project() {
           <a
             className="justify-between w-full primary flex text-base h-fit items-center gap-x-2 bg-surface-secondary dark:bg-light-surface-secondary hover:bg-surface-tertiary dark:hover:bg-light-surface-tertiary py-4 px-4 rounded-lg transition-colors"
             href={current!.repository_url}
+            target="blank"
           >
             <i className="text-2xl">
               <DiGithubBadge />
