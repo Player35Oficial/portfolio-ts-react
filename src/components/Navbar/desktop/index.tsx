@@ -1,7 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { IconButton } from "../../Buttons";
 import { LuLanguages, LuSunMedium } from "react-icons/lu";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { LangContext } from "../../../context/lang-context";
 
 interface NavBarProps {
   navbarLogo: string;
@@ -10,9 +11,13 @@ interface NavBarProps {
 
 export default function Navbar(props: NavBarProps) {
   const { navbarLogo, navbarLogoDark } = props;
+  const local = useLocation();
+
   const [currentTheme, setCurrentTheme] = useState(
     localStorage.getItem("theme")
   );
+
+  const { lang, toggleLang } = useContext(LangContext);
 
   function toggleTheme() {
     const html = window.document.querySelector("html");
@@ -30,8 +35,6 @@ export default function Navbar(props: NavBarProps) {
     }
   }
 
-  const local = useLocation();
-
   const activeStyle =
     "text-text-primary font-bold p-2 dark:text-light-text-primary";
 
@@ -46,34 +49,64 @@ export default function Navbar(props: NavBarProps) {
         />
       </div>
       <div className="flex gap-4">
-        <nav className="flex gap-4 text-text-secondary dark:text-light-text-secondary">
-          <a
-            href="/#home"
-            className={local.hash === "/#home" ? activeStyle : "p-2"}
-          >
-            Home
-          </a>
-          <a
-            href="/#about"
-            className={local.hash === "#about" ? activeStyle : "p-2"}
-          >
-            About
-          </a>
-          <a
-            className={local.hash === "#projects" ? activeStyle : "p-2"}
-            href="/#projects"
-          >
-            Projects
-          </a>
-          <a
-            className={local.hash === "#contact" ? activeStyle : "p-2"}
-            href="/#contact"
-          >
-            Contact
-          </a>
-        </nav>
+        {lang === "en-US" ? (
+          <nav className="flex gap-4 text-text-secondary dark:text-light-text-secondary">
+            <a
+              href="/#home"
+              className={local.hash === "/#home" ? activeStyle : "p-2"}
+            >
+              Home
+            </a>
+            <a
+              href="/#about"
+              className={local.hash === "#about" ? activeStyle : "p-2"}
+            >
+              About
+            </a>
+            <a
+              className={local.hash === "#projects" ? activeStyle : "p-2"}
+              href="/#projects"
+            >
+              Projects
+            </a>
+            <a
+              className={local.hash === "#contact" ? activeStyle : "p-2"}
+              href="/#contact"
+            >
+              Contact
+            </a>
+          </nav>
+        ) : (
+          <nav className="flex gap-4 text-text-secondary dark:text-light-text-secondary">
+            <a
+              href="/#home"
+              className={local.hash === "/#home" ? activeStyle : "p-2"}
+            >
+              Início
+            </a>
+            <a
+              href="/#about"
+              className={local.hash === "#about" ? activeStyle : "p-2"}
+            >
+              Sobre
+            </a>
+            <a
+              className={local.hash === "#projects" ? activeStyle : "p-2"}
+              href="/#projects"
+            >
+              Projetos
+            </a>
+            <a
+              className={local.hash === "#contact" ? activeStyle : "p-2"}
+              href="/#contact"
+            >
+              Contato
+            </a>
+          </nav>
+        )}
+
         <div className="text-text-primary dark:text-light-surface-primary flex items-center gap-4">
-          <IconButton icon={LuLanguages} />
+          <IconButton icon={LuLanguages} action={toggleLang} />
           <IconButton icon={LuSunMedium} action={toggleTheme} />
         </div>
       </div>
