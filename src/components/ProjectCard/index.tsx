@@ -1,5 +1,4 @@
-// import { IconType } from "react-icons";
-import { IconType } from "react-icons";
+import { IconType, IconBase } from "react-icons";
 import Default from "../../assets/default_project_image.png";
 import { ProjectCardProps } from "../../data/Projects";
 // import { IconButton } from "../Buttons";
@@ -13,7 +12,7 @@ function convertToReactNode(
   icon: IconType | (() => JSX.Element) | JSX.Element
 ): JSX.Element {
   if (typeof icon === "function") {
-    return icon();
+    return IconBase({});
   }
 
   // Se icon não for uma função, assumimos que é um JSX.Element ou um tipo equivalente.
