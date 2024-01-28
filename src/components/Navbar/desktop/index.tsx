@@ -52,26 +52,26 @@ export default function Navbar(props: NavBarProps) {
         {lang === "en-US" ? (
           <nav className="flex gap-4 text-text-secondary dark:text-light-text-secondary">
             <a
-              href="/#home"
+              href="/portfolio-ts-react#home"
               className={local.hash === "/#home" ? activeStyle : "p-2"}
             >
               Home
             </a>
             <a
-              href="/#about"
+              href="/portfolio-ts-react#about"
               className={local.hash === "#about" ? activeStyle : "p-2"}
             >
               About
             </a>
             <a
               className={local.hash === "#projects" ? activeStyle : "p-2"}
-              href="/#projects"
+              href="/portfolio-ts-react#projects"
             >
               Projects
             </a>
             <a
               className={local.hash === "#contact" ? activeStyle : "p-2"}
-              href="/#contact"
+              href="/portfolio-ts-react#contact"
             >
               Contact
             </a>
@@ -79,26 +79,26 @@ export default function Navbar(props: NavBarProps) {
         ) : (
           <nav className="flex gap-4 text-text-secondary dark:text-light-text-secondary">
             <a
-              href="/#home"
+              href="/portfolio-ts-react#home"
               className={local.hash === "/#home" ? activeStyle : "p-2"}
             >
               Início
             </a>
             <a
-              href="/#about"
+              href="/portfolio-ts-react#about"
               className={local.hash === "#about" ? activeStyle : "p-2"}
             >
               Sobre
             </a>
             <a
               className={local.hash === "#projects" ? activeStyle : "p-2"}
-              href="/#projects"
+              href="/portfolio-ts-react#projects"
             >
               Projetos
             </a>
             <a
               className={local.hash === "#contact" ? activeStyle : "p-2"}
-              href="/#contact"
+              href="/portfolio-ts-react#contact"
             >
               Contato
             </a>
