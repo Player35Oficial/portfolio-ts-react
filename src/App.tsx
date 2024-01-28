@@ -29,14 +29,8 @@ function App() {
       )}
 
       <Routes>
-        <Route
-          path="/strategic-portfolio-react-typescript"
-          Component={lang === "en-US" ? Home : PtBrHome}
-        />
-        <Route
-          path="/strategic-portfolio-react-typescript/project/:id"
-          Component={Project}
-        />
+        <Route path="/" Component={lang === "en-US" ? Home : PtBrHome} />
+        <Route path="/project/:id" Component={Project} />
       </Routes>
       <footer className="text-text-secondary dark:text-light-text-secondary py-6 lg:px-20 px-4 flex flex-col lg:flex-row lg:justify-between gap-4 transition-colors">
         {lang === "en-US" ? (
